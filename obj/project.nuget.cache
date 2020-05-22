@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "HKdAAzD+xHJF7ZZhRlKS3+QSZonNG/2hOfZ5Eer0kGFyAbeNvaplsTKf7nwfEEg1sD1NjAe/xi37wt0Q/L7XnA==",
+  "success": true,
+  "projectFilePath": "/Users/eduardo/github/rpg/rpg.csproj",
+  "expectedPackageFiles": [
+    "/Users/eduardo/.nuget/packages/monogame.content.builder/3.7.0.9/monogame.content.builder.3.7.0.9.nupkg.sha512",
+    "/Users/eduardo/.nuget/packages/monogame.extended/3.7.0/monogame.extended.3.7.0.nupkg.sha512",
+    "/Users/eduardo/.nuget/packages/monogame.framework.desktopgl/3.7.1.189/monogame.framework.desktopgl.3.7.1.189.nupkg.sha512",
+    "/Users/eduardo/.nuget/packages/monogame.framework.desktopgl.core/3.8.0.13/monogame.framework.desktopgl.core.3.8.0.13.nupkg.sha512",
+    "/Users/eduardo/.nuget/packages/newtonsoft.json/11.0.2/newtonsoft.json.11.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

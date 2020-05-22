@@ -1,0 +1,314 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MonoGame.Content.Builder/3.7.0.9": {
+        "type": "package",
+        "build": {
+          "build/MonoGame.Content.Builder.targets": {}
+        }
+      },
+      "MonoGame.Extended/3.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {}
+        }
+      },
+      "MonoGame.Framework.DesktopGL/3.7.1.189": {
+        "type": "package",
+        "build": {
+          "build/MonoGame.Framework.DesktopGL.targets": {}
+        }
+      },
+      "MonoGame.Framework.DesktopGL.Core/3.8.0.13": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "build": {
+          "build/MonoGame.Framework.DesktopGL.Core.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSDL2-2.0.so.0": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libopenal.so.1": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libSDL2-2.0.0.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/osx/native/libopenal.1.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-x64/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MonoGame.Content.Builder/3.7.0.9": {
+      "sha512": "AAt9ns5w6c9JkZFC2UC+nB8v+kTDgRP1ONaB5lLSfzBhrGULUoNwMxiRAzi7GlPVj5yynu3PHNi8kZTOUIdF9g==",
+      "type": "package",
+      "path": "monogame.content.builder/3.7.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MGCB.zip",
+        "build/MGCB/.signature.p7s",
+        "build/MGCB/MonoGame.Content.Builder.Mac.nuspec",
+        "build/MGCB/[Content_Types].xml",
+        "build/MGCB/_rels/.rels",
+        "build/MGCB/build/ATI.TextureConverter.dll",
+        "build/MGCB/build/ATI.TextureConverter.dll.config",
+        "build/MGCB/build/AssimpNet.dll",
+        "build/MGCB/build/AssimpNet.dll.config",
+        "build/MGCB/build/AssimpNet.pdb",
+        "build/MGCB/build/AssimpNet.xml",
+        "build/MGCB/build/FreeImageNET.dll",
+        "build/MGCB/build/FreeImageNET.dll.config",
+        "build/MGCB/build/FreeImageNET.xml",
+        "build/MGCB/build/MGCB.exe",
+        "build/MGCB/build/MGCB.exe.config",
+        "build/MGCB/build/MGCB.xml",
+        "build/MGCB/build/MonoGame.Framework.Content.Pipeline.dll",
+        "build/MGCB/build/MonoGame.Framework.Content.Pipeline.xml",
+        "build/MGCB/build/MonoGame.Framework.dll",
+        "build/MGCB/build/MonoGame.Framework.dll.config",
+        "build/MGCB/build/MonoGame.Framework.xml",
+        "build/MGCB/build/Nvidia.TextureTools.dll",
+        "build/MGCB/build/Nvidia.TextureTools.dll.config",
+        "build/MGCB/build/PVRTexLibNET.dll",
+        "build/MGCB/build/PVRTexLibNET.dll.config",
+        "build/MGCB/build/SharpFont.dll",
+        "build/MGCB/build/SharpFont.dll.config",
+        "build/MGCB/build/SharpFont.xml",
+        "build/MGCB/build/ffmpeg",
+        "build/MGCB/build/ffprobe",
+        "build/MGCB/build/libPVRTexLibWrapper.dylib",
+        "build/MGCB/build/libSDL2-2.0.0.dylib",
+        "build/MGCB/build/libassimp.dylib",
+        "build/MGCB/build/libfreeimage.dylib",
+        "build/MGCB/build/libfreetype.6.dylib",
+        "build/MGCB/build/libnvcore.dylib",
+        "build/MGCB/build/libnvimage.dylib",
+        "build/MGCB/build/libnvmath.dylib",
+        "build/MGCB/build/libnvtt.dylib",
+        "build/MGCB/build/libopenal.1.dylib",
+        "build/MGCB/build/libpng15.15.dylib",
+        "build/MonoGame.Content.Builder.targets",
+        "monogame.content.builder.3.7.0.9.nupkg.sha512",
+        "monogame.content.builder.nuspec",
+        "tasks/net46/MonoGame.Content.Builder.dll",
+        "tasks/netstandard2.0/MonoGame.Content.Builder.dll"
+      ]
+    },
+    "MonoGame.Extended/3.7.0": {
+      "sha512": "gnxfWcMLWke1I21T+0h8ckZnum2jzybfaDtMTk5LUaPTdLCIt4nHpRYM467JdpOte2wtUzsuTAtQtKICqYk9rg==",
+      "type": "package",
+      "path": "monogame.extended/3.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MonoGame.Extended.dll",
+        "monogame.extended.3.7.0.nupkg.sha512",
+        "monogame.extended.nuspec"
+      ]
+    },
+    "MonoGame.Framework.DesktopGL/3.7.1.189": {
+      "sha512": "7e6CvCZAAglBIPDA+lTwdaRTv0EARPl4s7Ai8gkn7ximiFyRODrpyciSxENUgCowap4y5d5B3Then7k/6UbHGw==",
+      "type": "package",
+      "path": "monogame.framework.desktopgl/3.7.1.189",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoGame.Framework.DesktopGL.targets",
+        "build/native/MonoGame.Framework.dll.config",
+        "build/native/libSDL2-2.0.0.dylib",
+        "build/native/libopenal.1.dylib",
+        "build/native/x64/SDL2.dll",
+        "build/native/x64/libSDL2-2.0.so.0",
+        "build/native/x64/libopenal.so.1",
+        "build/native/x64/soft_oal.dll",
+        "build/native/x86/SDL2.dll",
+        "build/native/x86/libSDL2-2.0.so.0",
+        "build/native/x86/libopenal.so.1",
+        "build/native/x86/soft_oal.dll",
+        "lib/net45/MonoGame.Framework.dll",
+        "lib/net45/MonoGame.Framework.xml",
+        "monogame.framework.desktopgl.3.7.1.189.nupkg.sha512",
+        "monogame.framework.desktopgl.nuspec"
+      ]
+    },
+    "MonoGame.Framework.DesktopGL.Core/3.8.0.13": {
+      "sha512": "cMsc/UZFS8Uk/a1RDc8OZ9Z2EXrEglWGcZGSvPJiWEcUC5Oo9K9uoZXaprvesM3YbyT1ItzqS4jXjTDR4qT4WA==",
+      "type": "package",
+      "path": "monogame.framework.desktopgl.core/3.8.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoGame.Framework.DesktopGL.Core.targets",
+        "lib/net452/MonoGame.Framework.dll",
+        "lib/net452/MonoGame.Framework.xml",
+        "lib/netstandard2.0/MonoGame.Framework.dll",
+        "lib/netstandard2.0/MonoGame.Framework.xml",
+        "monogame.framework.desktopgl.core.3.8.0.13.nupkg.sha512",
+        "monogame.framework.desktopgl.core.nuspec",
+        "runtimes/linux-x64/native/libSDL2-2.0.so.0",
+        "runtimes/linux-x64/native/libopenal.so.1",
+        "runtimes/osx/native/libSDL2-2.0.0.dylib",
+        "runtimes/osx/native/libopenal.1.dylib",
+        "runtimes/win-x64/native/SDL2.dll",
+        "runtimes/win-x64/native/soft_oal.dll",
+        "runtimes/win-x86/native/SDL2.dll",
+        "runtimes/win-x86/native/soft_oal.dll"
+      ]
+    },
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "MonoGame.Content.Builder >= 3.7.*",
+      "MonoGame.Extended >= 3.7.0",
+      "MonoGame.Framework.DesktopGL >= 3.7.*",
+      "MonoGame.Framework.DesktopGL.Core >= 3.8.*"
+    ]
+  },
+  "packageFolders": {
+    "/Users/eduardo/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/eduardo/github/rpg/rpg.csproj",
+      "projectName": "rpg",
+      "projectPath": "/Users/eduardo/github/rpg/rpg.csproj",
+      "packagesPath": "/Users/eduardo/.nuget/packages/",
+      "outputPath": "/Users/eduardo/github/rpg/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/eduardo/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "MonoGame.Content.Builder": {
+            "target": "Package",
+            "version": "[3.7.*, )"
+          },
+          "MonoGame.Extended": {
+            "target": "Package",
+            "version": "[3.7.0, )"
+          },
+          "MonoGame.Framework.DesktopGL": {
+            "target": "Package",
+            "version": "[3.7.*, )"
+          },
+          "MonoGame.Framework.DesktopGL.Core": {
+            "target": "Package",
+            "version": "[3.8.*, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
