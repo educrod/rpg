@@ -30,7 +30,7 @@ namespace rpg
 
         Texture2D heart_Sprite;
         Texture2D bullet_Sprite;
-
+        //commend
         Player player = new Player();
 
         public Game1()
