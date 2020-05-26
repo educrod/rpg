@@ -72,32 +72,87 @@ namespace rpg
             player.animations[2] = new AnimatedSprite(playerLeft,1,4);
             player.animations[3] = new AnimatedSprite(playerRight,1,4);
 
+            Enemy.enemies.Add(new Snake(new Vector2(100,400)));
+            Enemy.enemies.Add(new Eye(new Vector2(300,450)));
+
+            Obstacle.obstacles.Add(new Tree(new Vector2(500,100)));
+            Obstacle.obstacles.Add(new Bush(new Vector2(700,300)));
+
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            player.Update(gameTime);
+            if (player.Health > 0){
+                player.Update(gameTime);
+            }
 
             foreach (Projectile proj in Projectile.projectiles){
                 proj.Update(gameTime);
             }
+            foreach(Enemy en in Enemy.enemies){
+                en.Update(gameTime, player.Position);
+            }
+            foreach(Projectile proj in Projectile.projectiles){
+                foreach(Enemy en in Enemy.enemies){
+                    int sum = proj.Radius + en.Radius;
+                    if(Vector2.Distance(proj.Position, en.Position) < sum){
+                        proj.Collided = true;
+                        en.Health--;                    
+                    }
+                }   
+                if (Obstacle.didCollide(proj.Position,proj.Radius)){
+                    proj.Collided = true;
+                }         
+            }
+            foreach (Enemy en in Enemy.enemies){                
+                int sum = player.Radius + en.Radius;
+                if(Vector2.Distance(player.Position,en.Position) < sum  && player.HealthTimer <= 0){
+                    player.Health--;
+                    player.HealthTimer = 1.5f;
+                }
+            }
+            Projectile.projectiles.RemoveAll(p => p.Collided);
+            Enemy.enemies.RemoveAll(e => e.Health <= 0);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.ForestGreen);
-
-            player.anim.Draw(_spriteBatch, new Vector2(player.Position.X - 48, player.Position.Y - 48));
+            if(player.Health > 0) {
+                player.anim.Draw(_spriteBatch, new Vector2(player.Position.X - 48, player.Position.Y - 48));
+            }
             _spriteBatch.Begin();
-            
+            foreach (Enemy en in Enemy.enemies) {
+                Texture2D spriteToDraw;
+                int rad;
+                if (en.GetType() == typeof(Snake)){
+                    spriteToDraw = snakeEnemy_Sprite;
+                    rad = 50;
+                } else {
+                    spriteToDraw = eyeEnemy_Sprite;
+                    rad = 73;
+                }
+                _spriteBatch.Draw(spriteToDraw, new Vector2(en.Position.X - rad, en.Position.Y - rad ), Color.White);
+            }
+
+            foreach (Obstacle o in Obstacle.obstacles) {        
+                Texture2D spriteToDraw;
+                if (o.GetType() == typeof(Tree)){
+                    spriteToDraw = tree_Sprite;
+                } else{
+                    spriteToDraw = bush_Sprite;
+                }
+                _spriteBatch.Draw(spriteToDraw, o.Position, Color.White);
+            }
             foreach (Projectile proj in Projectile.projectiles){
                 _spriteBatch.Draw(bullet_Sprite, new Vector2(proj.Position.X - proj.Radius, proj.Position.Y - proj.Radius), Color.White);
             }
-            
+            for(int i =0; i < player.Health; i++){
+                _spriteBatch.Draw(heart_Sprite, new Vector2(3 + i * 63, 3), Color.White);
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);

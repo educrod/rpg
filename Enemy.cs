@@ -33,12 +33,17 @@ namespace rpg
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Vector2 moveDir = playerPos - position;
             moveDir.Normalize();
-            position += moveDir * speed * dt;
+
+            Vector2 tempPos = position;
+            tempPos += moveDir * speed * dt;
+            if(!Obstacle.didCollide(tempPos,radius)){
+                position += moveDir * speed * dt;
+            }
         }
     }
     class Snake : Enemy {
         public Snake(Vector2 newPos) : base(newPos) {
-            speed = 160;
+            speed = 110;
             radius = 42;
             health = 3;
         }
