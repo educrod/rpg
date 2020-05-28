@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended;
+using MonoGame.Extended.Graphics;
+using MonoGame.Extended.Tiled;
+using MonoGame.Extended.Tiled.Renderers;
 
 namespace rpg
 {
@@ -13,7 +15,7 @@ namespace rpg
     }
 
     public class Game1 : Game
-    {
+    {        
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Texture2D player_Sprite;
@@ -31,6 +33,9 @@ namespace rpg
         Texture2D heart_Sprite;
         Texture2D bullet_Sprite;
         
+        TiledMap myMap;
+        TiledMapRenderer mapRenderer;
+        
         Player player = new Player();
 
         public Game1()
@@ -44,8 +49,9 @@ namespace rpg
 
         protected override void Initialize()
         {
-
-            base.Initialize();
+            mapRenderer = new TiledMapRenderer(GraphicsDevice);
+            base.Initialize();            
+            
         }
 
         protected override void LoadContent()
@@ -71,6 +77,9 @@ namespace rpg
             player.animations[1] = new AnimatedSprite(playerUp,1,4);
             player.animations[2] = new AnimatedSprite(playerLeft,1,4);
             player.animations[3] = new AnimatedSprite(playerRight,1,4);
+
+            myMap = Content.Load<TiledMap>("Misc/gameMap");
+            mapRenderer.LoadMap(myMap);
 
             Enemy.enemies.Add(new Snake(new Vector2(100,400)));
             Enemy.enemies.Add(new Eye(new Vector2(300,450)));
@@ -115,16 +124,21 @@ namespace rpg
             }
             Projectile.projectiles.RemoveAll(p => p.Collided);
             Enemy.enemies.RemoveAll(e => e.Health <= 0);
+            
+            mapRenderer.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.ForestGreen);
+            GraphicsDevice.Clear(Color.ForestGreen);            
+
+            mapRenderer.Draw();
+
             if(player.Health > 0) {
                 player.anim.Draw(_spriteBatch, new Vector2(player.Position.X - 48, player.Position.Y - 48));
             }
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             foreach (Enemy en in Enemy.enemies) {
                 Texture2D spriteToDraw;
                 int rad;

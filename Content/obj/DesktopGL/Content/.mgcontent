@@ -15,8 +15,12 @@
     <File>/Users/eduardo/github/rpg/Content/Obstacles/tree.png</File>
     <File>/Users/eduardo/github/rpg/Content/Misc/bullet.png</File>
     <File>/Users/eduardo/github/rpg/Content/Misc/heart.png</File>
+    <File>/Users/eduardo/github/rpg/Content/Misc/rpgTiles.png</File>
+    <File>/Users/eduardo/github/rpg/Content/Misc/gameMap.tmx</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

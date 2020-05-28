@@ -10,6 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:/Users/eduardo/github/rpg/bin/Debug/netcoreapp3.1/MonoGame.Extended.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -144,3 +145,20 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Misc/heart.png
+
+#begin rpgTiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Misc/rpgTiles.png
+
+#begin gameMap.tmx
+/importer:
+/processor:
+/build:Misc/gameMap.tmx
