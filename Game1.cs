@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended.Graphics;
+using MonoGame.Extended;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Renderers;
 
@@ -35,6 +35,8 @@ namespace rpg
         
         TiledMap myMap;
         TiledMapRenderer mapRenderer;
+
+        OrthographicCamera cam;        
         
         Player player = new Player();
 
@@ -50,6 +52,8 @@ namespace rpg
         protected override void Initialize()
         {
             mapRenderer = new TiledMapRenderer(GraphicsDevice);
+            cam = new OrthographicCamera(GraphicsDevice);
+            
             base.Initialize();            
             
         }
@@ -81,11 +85,28 @@ namespace rpg
             myMap = Content.Load<TiledMap>("Misc/gameMap");
             mapRenderer.LoadMap(myMap);
 
-            Enemy.enemies.Add(new Snake(new Vector2(100,400)));
-            Enemy.enemies.Add(new Eye(new Vector2(300,450)));
+            TiledMapObject[] allEnemies = myMap.GetLayer<TiledMapObjectLayer>("enemies").Objects;
+            foreach(var en in allEnemies) {
+                
+                string type;
+                en.Properties.TryGetValue("Type", out type);
+                if (type == "Snake")
+                    Enemy.enemies.Add(new Snake(en.Position));
+                else if (type == "Eye")
+                    Enemy.enemies.Add(new Eye(en.Position));
+            }
+            TiledMapObject[] allObstacles = myMap.GetLayer<TiledMapObjectLayer>("obstacles").Objects;
 
-            Obstacle.obstacles.Add(new Tree(new Vector2(500,100)));
-            Obstacle.obstacles.Add(new Bush(new Vector2(700,300)));
+            foreach (var obj in allObstacles){
+
+                string type;
+                obj.Properties.TryGetValue("Type", out type);
+                if (type == "Tree")
+                    Obstacle.obstacles.Add(new Tree(obj.Position));
+                else if (type == "Bush")
+                    Obstacle.obstacles.Add(new Bush(obj.Position));
+
+            }                    
 
         }
 
@@ -94,9 +115,34 @@ namespace rpg
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             if (player.Health > 0){
-                player.Update(gameTime);
+                player.Update(gameTime, myMap.WidthInPixels, myMap.HeightInPixels);
             }
 
+            float tempX = player.Position.X;
+            float tempY = player.Position.Y;
+            int camW = _graphics.PreferredBackBufferWidth;
+            int camH = _graphics.PreferredBackBufferHeight;
+
+            int mapW = myMap.WidthInPixels;
+            int mapH = myMap.HeightInPixels;
+
+            if (tempX < camW / 2){
+                tempX = camW / 2;
+            }
+
+            if (tempY < camH /2){
+                tempY = camH / 2;
+            }
+
+            if (tempX > (mapW - (camW / 2 ))){
+                tempX = (mapW - (camW / 2 ));
+            }
+            if (tempY > (mapH - (camH / 2 ))){
+                tempY = (mapH - (camH / 2 ));
+            }
+  
+            cam.LookAt(new Vector2(tempX,tempY));
+ 
             foreach (Projectile proj in Projectile.projectiles){
                 proj.Update(gameTime);
             }
@@ -133,12 +179,13 @@ namespace rpg
         {
             GraphicsDevice.Clear(Color.ForestGreen);            
 
-            mapRenderer.Draw();
+            mapRenderer.Draw(cam.GetViewMatrix());
 
+            _spriteBatch.Begin(transformMatrix: cam.GetViewMatrix());
+ 
             if(player.Health > 0) {
                 player.anim.Draw(_spriteBatch, new Vector2(player.Position.X - 48, player.Position.Y - 48));
             }
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             foreach (Enemy en in Enemy.enemies) {
                 Texture2D spriteToDraw;
                 int rad;
@@ -164,11 +211,14 @@ namespace rpg
             foreach (Projectile proj in Projectile.projectiles){
                 _spriteBatch.Draw(bullet_Sprite, new Vector2(proj.Position.X - proj.Radius, proj.Position.Y - proj.Radius), Color.White);
             }
+
+            _spriteBatch.End();
+
+            _spriteBatch.Begin();
             for(int i =0; i < player.Health; i++){
                 _spriteBatch.Draw(heart_Sprite, new Vector2(3 + i * 63, 3), Color.White);
             }
             _spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }

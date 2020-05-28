@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="4" nextobjectid="9">
  <tileset firstgid="1" name="RPG_Tiles" tilewidth="64" tileheight="64" tilecount="260" columns="20">
   <image source="rpgTiles.png" width="1280" height="832"/>
  </tileset>
@@ -27,4 +27,48 @@
 27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27
 </data>
  </layer>
+ <objectgroup id="2" name="enemies">
+  <object id="1" x="474.843" y="332.39" width="53.4199" height="53.4199">
+   <properties>
+    <property name="Type" value="Snake"/>
+   </properties>
+  </object>
+  <object id="2" x="1534.34" y="655.878" width="71.2265" height="68.2588">
+   <properties>
+    <property name="Type" value="Eye"/>
+   </properties>
+  </object>
+  <object id="3" x="676.652" y="635.103" width="77.1621" height="68.2588">
+   <properties>
+    <property name="Type" value="Snake"/>
+   </properties>
+  </object>
+  <object id="4" x="575.748" y="958.59" width="77.1621" height="74.1943">
+   <properties>
+    <property name="Type" value="Eye"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="obstacles">
+  <object id="5" x="172.131" y="213.68" width="213.68" height="219.615">
+   <properties>
+    <property name="Type" value="Bush"/>
+   </properties>
+  </object>
+  <object id="6" x="1077.3" y="688.523" width="255.228" height="243.357">
+   <properties>
+    <property name="Type" value="Tree"/>
+   </properties>
+  </object>
+  <object id="7" x="1982.47" y="673.684" width="252.261" height="234.454">
+   <properties>
+    <property name="Type" value="Bush"/>
+   </properties>
+  </object>
+  <object id="8" x="688.523" y="234.454" width="240.39" height="210.712">
+   <properties>
+    <property name="Type" value="Tree"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

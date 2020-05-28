@@ -46,7 +46,7 @@ namespace rpg
         public void setY(float newY) {
             position.Y = newY;
         }
-        public void Update(GameTime gameTime) {
+        public void Update(GameTime gameTime, int mapW, int mapH) {
             KeyboardState kState = Keyboard.GetState();
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -89,25 +89,25 @@ namespace rpg
                 switch (direction) {
                     case Dir.Right:
                         tempPos.X += speed * dt;
-                        if (!Obstacle.didCollide(tempPos, radius)){
+                        if (!Obstacle.didCollide(tempPos, radius) && tempPos.X < mapW){
                             position.X += speed * dt;
                         }
                         break;
                     case Dir.Left:
                         tempPos.X -= speed * dt;
-                        if (!Obstacle.didCollide(tempPos, radius)){
+                        if (!Obstacle.didCollide(tempPos, radius) && tempPos.X > 0){
                             position.X -= speed * dt;
                         }
                         break;
                     case Dir.Down:
                         tempPos.Y += speed * dt;
-                        if (!Obstacle.didCollide(tempPos, radius)){
+                        if (!Obstacle.didCollide(tempPos, radius) && tempPos.Y < mapH){
                             position.Y += speed * dt;
                         }
                         break;
                     case Dir.Up:
                         tempPos.Y -= speed * dt;
-                        if (!Obstacle.didCollide(tempPos, radius)){
+                        if (!Obstacle.didCollide(tempPos, radius) && tempPos.Y > 0){
                             position.Y -= speed * dt;
                         }
                         break;
