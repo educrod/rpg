@@ -31,11 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>        
-    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.*" />    
-    <PackageReference Include="MonoGame.Content.Builder" Version="3.7.*" />    
-    <PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.7.0" />
-    <PackageReference Include="MonoGame.Extended.Tiled" Version="3.7.0" />      
-    <PackageReference Include="MonoGame.Extended" Version="3.7.0" />
-    <PackageReference Include="MonoGame.Extended.Graphics" Version="3.7.0" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />   
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" /> 
+    <PackageReference Include="MonoGame.Extended" Version="3.8" />
+    <PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
+    <PackageReference Include="MonoGame.Extended.Tiled" Version="3.8" />          
+    <PackageReference Include="MonoGame.Extended.Graphics" Version="3.8" />   
   </ItemGroup>
 </Project>

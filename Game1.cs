@@ -44,17 +44,24 @@ namespace rpg
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            _graphics.PreferredBackBufferWidth = 1200;
-            _graphics.PreferredBackBufferHeight = 720;
+            //_graphics.IsFullScreen = false;
+            //_graphics.PreferredBackBufferWidth = 1200;
+            //_graphics.PreferredBackBufferHeight = 720;
+            //_graphics.ApplyChanges();
             IsMouseVisible = true;
+            
         }
 
         protected override void Initialize()
         {
             mapRenderer = new TiledMapRenderer(GraphicsDevice);
             cam = new OrthographicCamera(GraphicsDevice);
-            
+            //_graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferWidth = 1200;
+            _graphics.PreferredBackBufferHeight = 720;
+            _graphics.ApplyChanges();
             base.Initialize();            
+            
             
         }
 

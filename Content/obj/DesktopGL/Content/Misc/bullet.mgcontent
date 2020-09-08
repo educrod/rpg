@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/eduardo/github/rpg/Content/Misc/bullet.png</SourceFile>
   <SourceTime>2020-09-07T22:09:02.0236714-03:00</SourceTime>
   <DestFile>/Users/eduardo/github/rpg/Content/bin/DesktopGL/Content/Misc/bullet.xnb</DestFile>
-  <DestTime>2020-09-07T22:09:13.9435534-03:00</DestTime>
+  <DestTime>2020-09-07T22:29:32.7525095-03:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-08-05T16:49:54-03:00</ImporterTime>
+  <ImporterTime>2020-08-10T16:17:54-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-08-05T16:49:54-03:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T16:17:54-03:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

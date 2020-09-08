@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:/Users/eduardo/github/rpg/bin/Debug/netcoreapp3.1/MonoGame.Extended.Content.Pipeline.dll
+/reference:/Users/eduardo/.nuget/packages/monogame.extended.content.pipeline/3.8.0/tools/MonoGame.Extended.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -159,6 +159,6 @@
 /build:Misc/rpgTiles.png
 
 #begin gameMap.tmx
-/importer:
-/processor:
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
 /build:Misc/gameMap.tmx
