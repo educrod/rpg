@@ -1,0 +1,3 @@
+[submodule "mgmacbundle"]
+	path = mgmacbundle
+	url = https://github.com/educrod/mgmacbundle.git
